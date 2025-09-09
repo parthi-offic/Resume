@@ -34,10 +34,9 @@ const QAS = [
       <>
         <p>
           Other than OpenResume, there are some great free resume builders out
-          there, e.g. <Link href="https://rxresu.me/">Reactive Resume</Link>,{" "}
-          <Link href="https://flowcv.com/">FlowCV</Link>. However, OpenResume
+          there, e.g.Reactive Resume However, OpenResume
           stands out with 2 distinctive features:
-        </p>{" "}
+        </p>
         <p>
           <span className="font-semibold">
             1. OpenResume is designed specifically for the U.S. job market and
@@ -73,8 +72,7 @@ const QAS = [
     answer: (
       <p>
         OpenResume was created by{" "}
-        <Link href="https://github.com/xitanggg">Xitang Zhao</Link> and designed
-        by <Link href="https://www.linkedin.com/in/imzhi">Zhigang Wen</Link> as
+         as
         a weekend project. As immigrants to the US, we had made many mistakes
         when creating our first resumes and applying for internships and jobs.
         It took us a long while to learn some of the best practices. While
@@ -96,12 +94,6 @@ const QAS = [
         <p>
           The best way to support OpenResume is to share your thoughts and
           feedback with us to help further improve it. You can send us an email
-          at{" "}
-          <Link href="mailto:hello@open-resume.com">hello@open-resume.com</Link>{" "}
-          or{" "}
-          <Link href="https://github.com/xitanggg/open-resume/issues/new">
-            open an issue
-          </Link>{" "}
           at our Github repository. Whether you like it or not, we would love to
           hear from you.
         </p>
@@ -111,10 +103,6 @@ const QAS = [
           school’s career center. Our goal is to reach more people who struggle
           with creating their resume, and your word-of-mouth support would be
           greatly appreciated. If you use Github, you can also show your support
-          by{" "}
-          <Link href="https://github.com/xitanggg/open-resume">
-            giving the project a star
-          </Link>{" "}
           to help increase its popularity and reach.
         </p>
       </>
