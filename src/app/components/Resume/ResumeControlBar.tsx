@@ -4,9 +4,14 @@ import { useSetDefaultScale } from "components/Resume/hooks";
 import {
   MagnifyingGlassIcon,
   ArrowDownTrayIcon,
+  ArrowPathIcon,
 } from "@heroicons/react/24/outline";
 import { usePDF } from "@react-pdf/renderer";
 import dynamic from "next/dynamic";
+import { useAppDispatch } from "lib/redux/hooks";
+import { initialResumeState, setResume } from "lib/redux/resumeSlice";
+import { initialSettings, setSettings } from "lib/redux/settingsSlice";
+import { clearStateInLocalStorage } from "lib/redux/local-storage";
 
 const ResumeControlBar = ({
   scale,
@@ -21,6 +26,7 @@ const ResumeControlBar = ({
   document: JSX.Element;
   fileName: string;
 }) => {
+  const dispatch = useAppDispatch();
   const { scaleOnResize, setScaleOnResize } = useSetDefaultScale({
     setScale,
     documentSize,
@@ -59,14 +65,28 @@ const ResumeControlBar = ({
           <span className="select-none">Autoscale</span>
         </label>
       </div>
-      <a
-        className="ml-1 flex items-center gap-1 rounded-md border border-gray-300 px-3 py-0.5 hover:bg-gray-100 lg:ml-8"
-        href={instance.url!}
-        download={fileName}
-      >
-        <ArrowDownTrayIcon className="h-4 w-4" />
-        <span className="whitespace-nowrap">Download Resume</span>
-      </a>
+      <div className="flex items-center gap-2 lg:ml-8">
+        <a
+          className="ml-1 flex items-center gap-1 rounded-md border border-gray-300 px-3 py-0.5 hover:bg-gray-100"
+          href={instance.url!}
+          download={fileName}
+        >
+          <ArrowDownTrayIcon className="h-4 w-4" />
+          <span className="whitespace-nowrap">Download Resume</span>
+        </a>
+        <button
+          type="button"
+          className="ml-1 flex items-center gap-1 rounded-md border border-gray-300 px-3 py-0.5 hover:bg-gray-100"
+          onClick={() => {
+            clearStateInLocalStorage();
+            dispatch(setResume(structuredClone(initialResumeState)));
+            dispatch(setSettings(structuredClone(initialSettings)));
+          }}
+        >
+          <ArrowPathIcon className="h-4 w-4" />
+          <span className="whitespace-nowrap">Reset</span>
+        </button>
+      </div>
     </div>
   );
 };
